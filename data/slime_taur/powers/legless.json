@@ -1,0 +1,35 @@
+{
+    "name": "§a§nLegless",
+    "description": "§2Due to your lack of legs of any kind, the only way you may move is by bouncing around for the most part",
+    "type": "origins:multiple",
+    "no_walking": {
+        "type": "origins:attribute",
+        "modifier": {
+			"id": "slime_taur:legless_no_walking",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "ADD_MULTIPLIED_TOTAL",
+            "amount": -10
+        },
+        "update_health": true
+    },
+    "no_slipping": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:biome",
+            "condition": {
+                "type": "origins:temperature",
+                "comparison": "<=",
+                "compare_to": 0.05
+            }
+        },
+        "type": "origins:modify_slipperiness",
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "slime_taur:slippery_default"
+        },
+        "modifier": {
+            "operation": "add_base_late",
+            "amount": -0.55
+        }
+    }
+}
